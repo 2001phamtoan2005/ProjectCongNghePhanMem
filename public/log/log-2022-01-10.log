@@ -1,0 +1,24 @@
+ERROR - 2022-01-10 10:40:02 --> searchequipment Undefined array key "Startfrom"
+ERROR - 2022-01-10 10:42:31 --> Column 'del_flag' in where clause is ambiguous
+CRITICAL - 2022-01-10 10:42:31 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\csv_management\CSV_Management\app\Controllers\Equipment.php(30): App\Models\EquipmentsModel->searchequipment('', '', '', '', '', '', '', '')
+#1 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Equipment->searchequipment()
+#2 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#3 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\csv_management\CSV_Management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-01-10 11:15:19 -->  Equipmentcontroler funtron indexEquipment foreach() argument must be of type array|object, string given
+ERROR - 2022-01-10 11:15:40 -->  Equipmentcontroler funtron indexEquipment foreach() argument must be of type array|object, string given
+ERROR - 2022-01-10 11:15:54 -->  Equipmentcontroler funtron indexEquipment foreach() argument must be of type array|object, string given
+ERROR - 2022-01-10 11:16:16 -->  Equipmentcontroler funtron indexEquipment foreach() argument must be of type array|object, string given
+CRITICAL - 2022-01-10 11:34:13 --> log(): Argument #1 ($num) must be of type float, string given
+#0 C:\xampp\htdocs\csv_management\CSV_Management\app\Views\Equipment\index.php(82): log('')
+#1 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('Equipment/index', Array, true)
+#4 C:\xampp\htdocs\csv_management\CSV_Management\app\Controllers\Equipment.php(12): view('Equipment/index', Array)
+#5 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Equipment->index()
+#6 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#7 C:\xampp\htdocs\csv_management\CSV_Management\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\csv_management\CSV_Management\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
