@@ -5,14 +5,20 @@
     </div>
     <div class="headerHomePage__info">
         <div class="headerHomePage__dropdown">
-            <div class="btnSelectLanguage" >
-                <i class="fa-solid fa-globe" style="margin-right:10px"></i>
-                <?=session()->get('lang')?>
+            <span class="btnSelectLanguage" id="language_slect">
+                    <i class="fa-solid fa-globe" style="margin-right:10px"></i>
+                    <span>
+                        <?php if (session()->get('lang')==null) { ?>
+                           EN
+                        <?php } else { ?>
+                            <?=session()->get('lang')?>
+                        <?php } ?>
+                    </span>
                 <div class="listLanguge">
-                    <a class="listLanguage__item"   href="<?=base_url('lang/en')?>"><i class="flag flag-us"></i>America</a>
-                    <a class="listLanguage__item"  href="<?=base_url('lang/vn')?>"><i class="flag flag-vn"></i>VietNam</a>
+                    <a id="EN" class="listLanguage__item"   href="<?=base_url('lang/en')?>"><i class="flag flag-us"></i>America</a>
+                    <a id="VN" class="listLanguage__item"  href="<?=base_url('lang/vn')?>"><i class="flag flag-vn"></i>VietNam</a>
                 </div>
-            </div>
+            </span>
         </div>
         <div class="headerHomePage__profile">
             <i class="headerHomePage__profile-icon fa-solid fa-circle-user"></i>
@@ -99,7 +105,6 @@
     const pathname = window.location.pathname.replace('/csv_management/CSV_Management/','').trim();
   
     for(var item of listitem){
-        console.log(pathname,item.id,pathname==item.id, item.parentElement)
         if(pathname==item.id){
             item.parentElement.classList.add('active')
         }
@@ -109,14 +114,16 @@
     }
 
     // handle dropdown select language
-    const btnSelectLang =document.querySelector('.listLanguge');
-    document.querySelector('.btnSelectLanguage').addEventListener('click',()=>{
-       btnSelectLang.classList.toggle('selected')
+    const btnSelectLang =document.querySelector('#language_slect');
+    const listLanguage = document.querySelector('.listLanguge');
+    btnSelectLang.addEventListener('click',()=>{
+        listLanguage.classList.toggle('selected')
     })
 
-    window.addEventListener('click',(e)=>{
-        if(e.target != document.querySelector('.btnSelectLanguage')){
-           btnSelectLang.classList.remove('selected')
+    document.addEventListener('click',(e)=>{
+        console.log(e.target.closest('#language_slect'))
+        if(e.target.closest('#language_slect')==null){
+            listLanguage.classList.remove('selected')
         }
     })
 
