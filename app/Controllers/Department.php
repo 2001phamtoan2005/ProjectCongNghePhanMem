@@ -101,5 +101,11 @@ class Department extends BaseController
          return redirect()->to('/Department');
     }
 
+    public function getName($id)
+    {
+        $data=$data=$this->db->query('SELECT name FROM `departments` WHERE id='.$id  )->getResultArray();        
+        return $data;
+    }
+
 }
 

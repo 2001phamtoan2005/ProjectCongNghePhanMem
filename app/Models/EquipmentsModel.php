@@ -280,7 +280,12 @@ class EquipmentsModel extends Model
         $data=$this->db->query('SELECT count(*) as `total` FROM `equipments` where year(created_time)="'.$year.'" and name="'.$name.'" '  )->getResultArray();        
         return $data;
     }
-    
+
+    public function getEquipUser($id)
+    {
+        $data=$data=$this->db->query('SELECT equipment_id,name,note FROM `equipments` WHERE profile_id='.$id  )->getResultArray();        
+        return $data;
+    }
 
 
 }

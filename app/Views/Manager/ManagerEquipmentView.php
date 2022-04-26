@@ -15,29 +15,29 @@
         <div class="card-body">
         <div class="d-flex ">
             <!-- form here -->
-            <form class="w-100" >
+            <form class="w-100" action="<?=base_url('manager') ?>" method="get">
                 <div class="row">
                     <div class="col col-6">
                         <!-- fint id NV -->
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Enter ID" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" id="userID" class="form-control" placeholder="Enter ID" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
                         </div>
                         <!-- info NV -->
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Name</span>
-                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input  id="name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="col col-6">
                         <!-- info NV -->
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Position</span>
-                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="position" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Departments</span>
-                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="department" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         
                     </div>
@@ -46,7 +46,7 @@
         </div>
         <!-- table cap phat thiet bi -->
         <div class="" style="overflow-y:scroll;height:360px">
-            <table class="table">
+            <table class="table" id="tableuser">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -56,79 +56,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-    
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>
-                      <button type="button" class="btn btn-danger">Danger</button>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
     </div>
@@ -260,3 +188,7 @@
 
 </div>
 <?= $this->endSection() ?>
+
+
+
+

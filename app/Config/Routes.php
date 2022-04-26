@@ -100,6 +100,11 @@ $routes->get('config/gettype','Config::gettype');
 
 $routes->get('homepage/getlistconfig','Home::getlistconfig');
 $routes->get('homepage/updatechart/(:alphanum)','Home::updatechart/$1');
+
+$routes->get('manager',"Manager::index");
+$routes->get('manager/getuser','Manager::searchUser');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing   

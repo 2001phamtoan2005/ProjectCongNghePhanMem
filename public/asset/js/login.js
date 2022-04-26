@@ -44,7 +44,7 @@ const loginPage={
             setTimeout(()=>{
                 response.classList.remove('visible');
                 message.innerHTML=`${data}`;
-            },3000)
+            },10000)
         }
     },
     start(){

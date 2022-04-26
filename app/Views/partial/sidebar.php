@@ -64,7 +64,7 @@
                 </a>
             </li>
             <li class="sidebarItem">
-                <a href="<?=base_url('managerequipment')?>" class="sidebarItem__link" id="managerequipment"> <i class="sidebarIcon fas fa-cogs"></i> <span
+                <a href="<?=base_url('manager')?>" class="sidebarItem__link" id="managerequipment"> <i class="sidebarIcon fas fa-cogs"></i> <span
                         ><?php echo lang('component.managerequipment'); ?> </span>
                 </a>
             </li>
