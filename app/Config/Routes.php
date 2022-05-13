@@ -103,6 +103,7 @@ $routes->get('homepage/updatechart/(:alphanum)','Home::updatechart/$1');
 
 $routes->get('manager',"Manager::index");
 $routes->get('manager/getuser','Manager::searchUser');
+$routes->get('manager/(:alphanum)',"Manager::getUser/$1");
 
 
 /*

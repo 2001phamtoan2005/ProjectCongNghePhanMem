@@ -1,0 +1,41 @@
+INFO - 2022-04-27 10:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2022-04-27 10:13:14 --> Array to string conversion
+#0 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Views\Manager\ManagerEquipmentView.php(217): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 217, Array)
+#1 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('Manager/Manager...', Array, true)
+#4 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Manager.php(35): view('Manager/Manager...', Array)
+#5 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Manager->index()
+#6 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Manager))
+#7 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ProjectCongNghePhanMem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2022-04-27 10:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2022-04-27 10:13:40 --> Array to string conversion
+#0 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Views\Manager\ManagerEquipmentView.php(220): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 220, Array)
+#1 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('Manager/Manager...', Array, true)
+#4 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Manager.php(35): view('Manager/Manager...', Array)
+#5 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Manager->index()
+#6 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Manager))
+#7 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ProjectCongNghePhanMem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2022-04-27 10:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:16:20 --> CSRF cookie sent.
+INFO - 2022-04-27 10:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:19:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:20:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:21:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 10:23:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:28:26 --> CSRF cookie sent.
+INFO - 2022-04-27 21:28:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:28:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:28:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:28:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-04-27 21:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

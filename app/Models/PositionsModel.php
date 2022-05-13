@@ -178,6 +178,11 @@ class PositionsModel extends Model
         return  $data;
 
     }
+    public function getName($id)
+    {
+        $data=$data=$this->db->query('SELECT name FROM `positions` WHERE id='.$id  )->getResultArray();        
+        return $data;
+    }
 
 }
 

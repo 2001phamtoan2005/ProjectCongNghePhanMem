@@ -13,12 +13,36 @@ class Manager extends BaseController
     public function index()
     {
         helper(['form', 'url']);
-        return view('Manager/ManagerEquipmentView');
+
+        $id=1;
+        $user=$this->ProfilesModel->getUser($id);
+        // echo json_encode($user);
+        // exit;
+        //$name=$this->$user['name'];
+        //$position_id=$user['position_id'];
+        //$department_id=$user['department_id'];
+        //$data_table=$this->EquimentsModel->getEquipUser();
+        $type=$this->EquipmentsModel->getName();
+        $data_equip=$this->EquipmentsModel->getEquipNoUser();
+        $data=[
+            'id'=>$id,
+            'name'=>$user[0]['name'],
+            'position'=>$this->PositionsModel->getName($user[0]['position_id']),
+            'department'=>$this->DepartmentsModel->getName($user[0]['department_id']),
+            'data'=>$this->EquipmentsModel->getEquipUser($id),
+            "type"=>$type,
+            "data_equip"=>$data_equip,
+
+        ];
+
+        // echo json_encode($data);
+        // exit;
+        return view('Manager/ManagerEquipmentView',$data);
     }
     
     public function getUser($id)
     {
-        $json_data = $this->EquimentsModel->getEquipUser();
+        $json_data = $this->EquimentsModel->getEquipUser($id);
         echo json_encode($json_data);
     }
 
@@ -33,13 +57,32 @@ class Manager extends BaseController
         $department_id=$user['department_id'];
         $data_table=$this->EquimentsModel->getEquipUser();
         $data=[
+            'id'=>$id,
             'name'=>$name,
             'position'=>$this->PositionsModel->getName($position_id),
             'department'=>$this->DepartmentsModel->getName($department_id),
             'data'=>$data_table
         ];
-        echo json_encode($data);
-        exit;
+        return view('Manager/ManagerEquipmentView',$data);
+        
+    }
+    public function addEquip()
+    {
+        //kiem tra da nhap nguoi truoc khi add chua
+        $name = $this->request->getPost('userID');
+            if($name=="")
+            {
+                echo "Please enter user!";
+                exit;
+            }
+        $id = $this->request->getPost('id');
+        $data=array(
+            'profile_id'=>$name,
+            'updated_time'=>Time::now()->toDateTimeString(),
+            'updated_user'=>session()->get('users')['id'],
+        );
+        $model= new EquipmentsModel();
+        $model->addUserToEquip($data,$id);
     }
     
 }

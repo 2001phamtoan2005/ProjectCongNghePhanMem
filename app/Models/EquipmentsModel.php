@@ -287,5 +287,19 @@ class EquipmentsModel extends Model
         return $data;
     }
 
+    public function getEquipNoUser()
+    {
+        $data=$data=$this->db->query('SELECT equipment_id,name,note FROM `equipments` WHERE profile_id is NULL'  )->getResultArray();        
+        return $data;
+    }
+
+    public function addUserToEquip($data,$id)
+    {
+        $query = $this->db->table('equipments')->update($data, array('id' => $id));
+        return $query;
+    }
+
+    
+
 
 }
