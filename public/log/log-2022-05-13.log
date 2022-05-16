@@ -29,3 +29,5 @@ INFO - 2022-05-13 09:47:01 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2022-05-13 09:54:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2022-05-13 10:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2022-05-13 10:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-13 14:57:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-13 14:57:46 --> CSRF cookie sent.

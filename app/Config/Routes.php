@@ -102,9 +102,10 @@ $routes->get('homepage/getlistconfig','Home::getlistconfig');
 $routes->get('homepage/updatechart/(:alphanum)','Home::updatechart/$1');
 
 $routes->get('manager',"Manager::index");
-$routes->get('manager/getuser','Manager::searchUser');
+$routes->post('manager/getuser','Manager::searchUser');
 $routes->get('manager/(:alphanum)',"Manager::getUser/$1");
-
+$routes->post('manager/addEquip','Manager::addEquip');
+$routes->post('manager/reomveEquip','Manager::reomveEquip');
 
 /*
  * --------------------------------------------------------------------

@@ -32,9 +32,7 @@ class Manager extends BaseController
             'data'=>$this->EquipmentsModel->getEquipUser($id),
             "type"=>$type,
             "data_equip"=>$data_equip,
-
         ];
-
         // echo json_encode($data);
         // exit;
         return view('Manager/ManagerEquipmentView',$data);
@@ -48,7 +46,10 @@ class Manager extends BaseController
 
     public function searchUser()
     {
-        $id = $this->request->getVar('userID');
+        //return view('Manager/ManagerEquipmentView');
+        $id = $this->request->getPost('userID');
+        echo json_encode($id);
+        exit;
         if($id==null)
             return null;
         $user=$this->ProfilesModel->getUser($id);
@@ -69,7 +70,7 @@ class Manager extends BaseController
     public function addEquip()
     {
         //kiem tra da nhap nguoi truoc khi add chua
-        $name = $this->request->getPost('userID');
+        $name = $this->request->getPost('iduser');
             if($name=="")
             {
                 echo "Please enter user!";
@@ -81,8 +82,34 @@ class Manager extends BaseController
             'updated_time'=>Time::now()->toDateTimeString(),
             'updated_user'=>session()->get('users')['id'],
         );
+        // echo json_encode($data);
+        // echo json_encode($id);
+        // exit;
         $model= new EquipmentsModel();
         $model->addUserToEquip($data,$id);
+        return redirect()->to('/manager');
+    }
+
+    public function reomveEquip()
+    {
+        //kiem tra da nhap nguoi truoc khi add chua
+        $name = $this->request->getPost('iduser');
+        
+            if($name=="")
+            {
+                echo "Please enter user!";
+                exit;
+            }
+        $id = $this->request->getPost('id');
+        $data=array(
+            'profile_id'=>null,
+            'updated_time'=>Time::now()->toDateTimeString(),
+            'updated_user'=>session()->get('users')['id'],
+        );
+        
+        $model= new EquipmentsModel();
+        $model->addUserToEquip($data,$id);
+        return redirect()->to('/manager');
     }
     
 }

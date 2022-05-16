@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <!-- The Delete Modal -->
-<form action="<?= base_url('')?>" method="post">
+<form action="<?= base_url('manager/reomveEquip')?>" method="post">
 <div class="modal" id="DelModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -28,7 +28,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <input type="hidden" name="id" id="id" class="id">
+      <input  name="id" id="id" class="id" style="color:black">
+      <input  name="iduser" id="iduser" class="id" style="color:black">
         <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
         <button type="submit" class="btn btn-primary" >  Yes  </button>
         &nbsp;
@@ -42,14 +43,14 @@
 </form>
 
 <!-- The Add Modal -->
-<form action="<?= base_url('')?>" method="post">
+<form action="<?= base_url('manager/addEquip')?>" method="post">
 <div class="modal" id="AddModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Add equipment</h4>
+        <h4 class="modal-title" style="color:black">Add equipment</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -68,6 +69,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
       <input type="hidden" name="id" id="id" class="id">
+      <input type="hidden" name="iduser" id="iduser" class="id">
         <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
         <button type="submit" class="btn btn-primary" >  Yes  </button>
         &nbsp;
@@ -79,6 +81,7 @@
   </div>
 </div>
 </form>
+
 
 
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%">
@@ -93,7 +96,7 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <!-- form here -->
-                        <form class="w-100" action="<?=base_url('manager/getuser') ?>" method="get">
+                        <form class="w-100" action="<?=base_url('manager/getuser') ?>" method="post">
                             <div class="row">
                                 <div class="col col-6">
                                     <!-- fint id NV -->
@@ -107,7 +110,7 @@
                                             aria-label="Recipient's username"
                                             aria-describedby="button-addon2"
                                         />
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                                             Search
                                         </button>
                                     </div>
@@ -308,26 +311,31 @@
                             },
                             {
                                 orderable: false,
-                                "defaultContent": '<center>'                   
-                                +'<button id="edit" class="btn btn-success"><i class="fa fa-edit mr-1"><?php echo lang('component.Edit'); ?></i></button>'
-                                +'</center>'
+                                "defaultContent": '<center>'
+                    +'<button id="editBtn" class="btn btn-success"><i class="fa fa-edit mr-1"><?php echo lang('component.Edit'); ?></i></button>'
+                    +'</center>'
                             },
                         ],
                 });
                 //load modal del
                 $('#tableuser tbody').on( 'click', '#delBtn', function () {
                 var data = t.row( $(this).parents('tr') ).data();
-                console.log(data);
-                $('#DelModal #id').val(data.id); 
-                $('#DelModal #nameps').text(data.name);      
+                var user=$('#userID').val();
+                console.log(user);
+                $('#DelModal #id').val(data.equipment_id); 
+                $('#DelModal #iduser').val(user); 
+                $('#DelModal #nameps').text(data.name);  
+
                 $('#DelModal').modal('show');
                 } );
                 //load modal add
-                $('#table_equip tbody').on( 'click', '#edit', function () {
-                var data = t.row( $(this).parents('tr') ).data();
-                console.log(data);
-                // $('#AddModal #id').val(data.id); 
-                // $('#AddModal #nameps').text(data.name);      
+                $('#table_equip tbody').on( 'click', '#editBtn', function () {
+                var data = t2.row( $(this).parents('tr') ).data();
+                var user=$('#userID').val();
+                console.log(user);
+                $('#AddModal #id').val(data.equipment_id); 
+                $('#AddModal #iduser').val(user);
+                $('#AddModal #nameps').text(data.name);      
                 $('#AddModal').modal('show');
                 } );
             

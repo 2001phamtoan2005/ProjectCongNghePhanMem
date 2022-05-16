@@ -295,7 +295,7 @@ class EquipmentsModel extends Model
 
     public function addUserToEquip($data,$id)
     {
-        $query = $this->db->table('equipments')->update($data, array('id' => $id));
+        $query = $this->db->table('equipments')->update($data, array('equipment_id' => $id));
         return $query;
     }
 
