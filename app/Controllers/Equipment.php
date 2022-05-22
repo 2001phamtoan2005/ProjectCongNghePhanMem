@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\ConfigModel;
+use App\Models\EquipmentsModel;
 use CodeIgniter\I18n\Time;
 
 class Equipment extends BaseController
@@ -26,23 +27,41 @@ class Equipment extends BaseController
     public function searchequipment()
     {
 
-        try {
-            $name = trim($_GET['name']);
-            $purchasedatefrom = trim($_GET['purchasedatefrom']);
-            $warrantyperiodfrom = trim($_GET['warrantyperiodfrom']);
-            $Equipmenttype = trim($_GET['Equipmenttype']);
-            $purchasedateto = trim($_GET['purchasedateto']);
-            $warrantyperiodto = trim($_GET['warrantyperiodto']);
-            $series = trim($_GET['series']);
-            $position = trim($_GET['position']);
-            $manufacture=trim($_GET['manufacture']);
-            $status=trim($_GET['status']);
-            $json_data = $this->EquipmentsModel->searchequipment($name, $purchasedatefrom, $warrantyperiodfrom, $Equipmenttype, $purchasedateto, $warrantyperiodto, $series, $position,$manufacture,$status);
+        // try {
+        //     $name = trim($_GET['name']);
+        //     $purchasedatefrom = trim($_GET['purchasedatefrom']);
+        //     $warrantyperiodfrom = trim($_GET['warrantyperiodfrom']);
+        //     $Equipmenttype = trim($_GET['Equipmenttype']);
+        //     $purchasedateto = trim($_GET['purchasedateto']);
+        //     $warrantyperiodto = trim($_GET['warrantyperiodto']);
+        //     $series = trim($_GET['series']);
+        //     $position = trim($_GET['position']);
+        //     $manufacture=trim($_GET['manufacture']);
+        //     $status=trim($_GET['status']);
+        //     $json_data = $this->EquipmentsModel->searchequipment($name, $purchasedatefrom, $warrantyperiodfrom, $Equipmenttype, $purchasedateto, $warrantyperiodto, $series, $position,$manufacture,$status);
 
-            echo json_encode($json_data);
-        } catch (\Exception $e) {
-            log_message("error",  'searchequipment ' . $e->getMessage());
-        }
+        //     echo json_encode($json_data);
+        // } catch (\Exception $e) {
+        //     log_message("error",  'searchequipment ' . $e->getMessage());
+        // }
+        $model=new EquipmentsModel();
+        $name = $this->request->getVar('name');
+        $purchasedatefrom = $this->request->getVar('purchasedatefrom');
+        $warrantyperiodfrom = $this->request->getVar('warrantyperiodfrom');
+        $Equipmenttype = $this->request->getVar('Equipmenttype');
+        $purchasedateto = $this->request->getVar('purchasedateto');
+        $warrantyperiodto = $this->request->getVar('warrantyperiodto');
+        $series = $this->request->getVar('series');
+        $position = $this->request->getVar('position');
+        $manufacture=$this->request->getVar('manufacture');
+        $status=$this->request->getVar('status');
+        $start = $this->request->getVar('start');
+        $length = $this->request->getVar('length');
+        $json_data = $this->EquipmentsModel->searchequipment($name, $purchasedatefrom, $warrantyperiodfrom, $Equipmenttype, $purchasedateto, $warrantyperiodto, $series, $position,$manufacture,$status);
+    
+        //$json_data=$model->searchequipment($name);
+        
+        echo json_encode($json_data);        
     }
     public function registerEquipment()
     {

@@ -104,6 +104,7 @@
                                         <input
                                             type="text"
                                             id="userID"
+                                            name="userID"
                                             value="<?= $id ?>"
                                             class="form-control"
                                             placeholder="Enter ID"
@@ -181,31 +182,7 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <!-- form  -->
-                        <form class="w-100">
-                            <div class="row">
-                                <div class="col col-12">
-                                    <!-- cbbox loai thiet bi -->
-                                    <select class="form-select mb-3" aria-label="Default select example">
-                                        <option selected>Loai Thiet Bi here</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <div class="input-group mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Chac Nhap Ten Thiet bi :)))"
-                                            aria-label="Recipient's username"
-                                            aria-describedby="button-addon2"
-                                        />
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-                                            Search
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        
                     </div>
                     <!-- table cap phat thiet bi -->
                     <div style="overflow-y: scroll; height: 360px">

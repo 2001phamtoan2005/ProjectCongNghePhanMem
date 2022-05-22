@@ -4,7 +4,7 @@
 
 
 <div class="card">
-    <div class="card-header">
+    <div class="card-header" style="color:black">
         <h3 class="card-title">Equipment List</h3>
     </div>
     <div class="card-body">
@@ -16,7 +16,7 @@
 
         $validation = \Config\Services::validation();
         ?>
-        <form class="" action="<?php echo 'equipment' ?>" method="post">
+        <form class="" action="<?php echo 'equipment' ?>" method="post" style="color:black">
             <?= csrf_field() ?>
             <div class="search" style=" margin-bottom: 10px;padding-top: 40px;">
                 <table  style="width: 100%;">

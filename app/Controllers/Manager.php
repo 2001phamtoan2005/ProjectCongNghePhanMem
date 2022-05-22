@@ -13,15 +13,8 @@ class Manager extends BaseController
     public function index()
     {
         helper(['form', 'url']);
-
         $id=1;
         $user=$this->ProfilesModel->getUser($id);
-        // echo json_encode($user);
-        // exit;
-        //$name=$this->$user['name'];
-        //$position_id=$user['position_id'];
-        //$department_id=$user['department_id'];
-        //$data_table=$this->EquimentsModel->getEquipUser();
         $type=$this->EquipmentsModel->getName();
         $data_equip=$this->EquipmentsModel->getEquipNoUser();
         $data=[
@@ -48,24 +41,26 @@ class Manager extends BaseController
     {
         //return view('Manager/ManagerEquipmentView');
         $id = $this->request->getPost('userID');
-        echo json_encode($id);
-        exit;
+        // echo json_encode($id);
+        // exit;
         if($id==null)
             return null;
         $user=$this->ProfilesModel->getUser($id);
-        $name=$this->$user['name'];
-        $position_id=$user['position_id'];
-        $department_id=$user['department_id'];
-        $data_table=$this->EquimentsModel->getEquipUser();
+        $type=$this->EquipmentsModel->getName();
+        $data_equip=$this->EquipmentsModel->getEquipNoUser();
         $data=[
             'id'=>$id,
-            'name'=>$name,
-            'position'=>$this->PositionsModel->getName($position_id),
-            'department'=>$this->DepartmentsModel->getName($department_id),
-            'data'=>$data_table
+            'name'=>$user[0]['name'],
+            'position'=>$this->PositionsModel->getName($user[0]['position_id']),
+            'department'=>$this->DepartmentsModel->getName($user[0]['department_id']),
+            'data'=>$this->EquipmentsModel->getEquipUser($id),
+            "type"=>$type,
+            "data_equip"=>$data_equip,
         ];
+        // echo json_encode($data);
+        // exit;
         return view('Manager/ManagerEquipmentView',$data);
-        
+    
     }
     public function addEquip()
     {

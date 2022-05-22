@@ -51,117 +51,59 @@ class EquipmentsModel extends Model
         $data=$this->db->table('manufacturer')->get()->getResult();
         return $data;
     }
-    public function searchequipment($name,$purchasedatefrom,$warrantyperiodfrom,$Equipmenttype,$purchasedateto,$warrantyperiodto,$series,$position,$manufacture,$status){
-       
-       
-        $search = ' where type_equiments.id=equipments.type_id and profiles.id=equipments.profile_id and equipments.del_flag = 0 and manufacturer.id=equipments.manufacture_id ';
+    public function searchequipment($equipment_id,$manufacture,$name,$note,$profile_id,$purchase_date,$series,$status,$warranty_period,$length,$start){
+        $builder = $this->db->table($this->table);
+        $builder->select('id,equipment_id,manufacture, name, note, profile_id, purchase_date, series,status,warranty_period');
+        $builder->where('del_flag',0);
+        $builder->orderBy('created_time','desc',);
+        $recordsTotal = $builder->countAllResults(false);
         
-        if(strlen($name) >0 ){
-            $search .= '  and  equipments.name like "%' . $name .'%"';
+        if (!empty($equipment_id)) {
+            $builder->like('equipment_id', $equipment_id);
         }
+        if (!empty($type)) {            
+                $builder->like('manufacture', $manufacture);
+        }
+        if (!empty($name))
+        {
+            $builder->like('name', $name);
+        }
+        if (!empty($note))
+        {
+            $builder->like('note', $note);
+        }
+        if (!empty($profile_id))
+        {
+            $builder->like('profile_id', $profile_id);
+        }
+        if (!empty($purchase_date))
+        {
+            $builder->like('purchase_date', $purchase_date);
+        }
+        if (!empty($series))
+        {
+            $builder->like('series', $series);
+        }
+        if (!empty($status))
+        {
+            $builder->like('status', $status);
+        }
+        if (!empty($warranty_period))
+        {
+            $builder->like('warranty_period', $warranty_period);
+        }
+        $builder->limit($length, $start);
         
-        if(strlen($purchasedatefrom) >0 ){
-          
-            $search .=' and  equipments.purchase_date >= "'.$purchasedatefrom.'"' ;
-        }
-        if(strlen($manufacture) >0 ){
-          
-            $search .=' and  manufacturer.id = '.$manufacture ;
-        }
-        
+        $result = $builder->get();
        
-        if(strlen($warrantyperiodfrom) >0 ){
-            
-            $search .=' and equipments.warranty_period >= " '.$warrantyperiodfrom.'"';
-        }
-       
-        if(strlen($purchasedateto) >0 ){
-            
-            $search .=' and equipments.purchase_date <= " '.$purchasedateto.'"';
-        }
-        
-        if(strlen($warrantyperiodto) >0 ){
-           
-            $search .= ' and  equipments.warranty_period <= " '.$warrantyperiodto.'"';
-        }
-       
-        if(strlen($series) >0 ){
-            
-            $search .= ' and equipments.series ="'.$series.'"';
-        }
-       
-        if(strlen($position) >0 ){
-            
-            $search .= ' and equipments.position ="'.$position.'"';
-        }
-        
-        if(strlen($Equipmenttype) >0 ){
-            
-            $search .= ' and  equipments.type_id ="'.$Equipmenttype.'"';
-        }
-        if(strlen($status) >0 ){
-            
-            $search .= ' and  equipments.status ="'.$status.'"';
-        }
-        $order = $_REQUEST['order'];
-        $sortname=$order[0]['column'] ;
-        $sorttype=$order[0]['dir'] ;
-        $sort='row';
-        if($sortname=='0'){
-            $sort=' row ';
-        }
-        else if($sortname=='1'){
-            $sort=' equipments.name ';
-        }
-        else if($sortname=='2'){
-            $sort=' type_equiments.name ';
-        }
-        else if($sortname=='3'){
-            $sort=' equipments.img ';
-        }
-        else if($sortname=='4'){
-            $sort=' manufacturer.name ';
-        }
-        else if($sortname=='5'){
-            $sort=' profiles.name ';
-        }
-        else if($sortname=='6'){
-            $sort=' equipments.purchase_date ';
-        }
-        else if($sortname=='7'){
-            $sort=' equipments.warranty_period ';
-        }
-        else if($sortname=='8'){
-            $sort=' equipments.series ';
-        }
-        else if($sortname=='9'){
-            $sort=' equipments.position ';
-        }
-        else if($sortname=='10'){
-            $sort=' equipments.note ';
-        }
-        else if($sortname=='11'){
-            $sort=' equipments.id ';
-        }
-        else if($sortname=='12'){
-            $sort=' equipments.status ';
-        }
+        $recordsFiltered = $builder->countAllResults(false);
+        $data = $result->getResultArray();
 
-        $params['draw'] = $_REQUEST['draw'];
-        $start = $_REQUEST['start'];
-        $length = $_REQUEST['length'];
-         $total_count = $this->db->query("SELECT  @row := @row + 1 AS row,equipments.id , equipments.name,type_equiments.name as 'Equipmenttype',equipments.img ,profiles.name as 'profilename' , manufacturer.name  as 'manufacturer' ,equipments.purchase_date,equipments.warranty_period,equipments.series,equipments.position,equipments.note from equipments  , (SELECT @row := 0) r ,profiles ,type_equiments,manufacturer  $search ORDER BY $sort $sorttype ")->getResult();
-
-        $data = $this->db->query("SELECT  @row := @row + 1 AS row,equipments.id , equipments.name,type_equiments.name as 'Equipmenttype'  ,equipments.img ,profiles.name as 'profilename' , manufacturer.name  as 'manufacturer' ,equipments.purchase_date,equipments.warranty_period,equipments.series,equipments.position,equipments.note from equipments  , (SELECT @row := 0) r ,profiles ,type_equiments,manufacturer   $search ORDER BY $sort $sorttype limit $start, $length  ")->getResult();
-        // print_r("SELECT  @row := @row + 1 AS row,equipments.id , equipments.name,type_equiments.name as 'Equipmenttype'  ,equipments.img ,profiles.name as 'profilename' , manufacturer.name  as 'manufacturer' ,equipments.purchase_date,equipments.warranty_period,equipments.series,equipments.position,equipments.note from equipments  , (SELECT @row := 0) r ,profiles ,type_equiments,manufacturer   $search ORDER BY $sort $sorttype limit $start, $length  ");
-    
-        $json_data = array(
-            "draw" => intval($params['draw']),
-            "recordsTotal" => count($total_count),
-            "recordsFiltered" => count($total_count),
-            "data" => $data   // total data array
-        );
-        return $json_data; 
+        return [
+            'recordsTotal' => $recordsTotal,
+            'recordsFiltered' => $recordsFiltered,
+            'data' => $data,
+        ];
     }
 
     public function addequipment($arraycourse){

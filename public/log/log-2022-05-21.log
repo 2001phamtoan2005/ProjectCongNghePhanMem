@@ -1,0 +1,32 @@
+INFO - 2022-05-21 17:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:26 --> CSRF cookie sent.
+INFO - 2022-05-21 17:39:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2022-05-21 17:39:27 --> Too few arguments to function App\Models\EquipmentsModel::searchequipment(), 10 passed in C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Equipment.php on line 60 and exactly 11 expected
+#0 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Equipment.php(60): App\Models\EquipmentsModel->searchequipment('', '', '', '', '', '', '', '', '', '')
+#1 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Equipment->searchequipment()
+#2 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#3 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ProjectCongNghePhanMem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+INFO - 2022-05-21 17:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2022-05-21 17:40:03 --> Too few arguments to function App\Models\EquipmentsModel::searchequipment(), 10 passed in C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Equipment.php on line 60 and exactly 11 expected
+#0 C:\xampp\htdocs\ProjectCongNghePhanMem\app\Controllers\Equipment.php(60): App\Models\EquipmentsModel->searchequipment('', '', '', '', '', '', '', '', '', '')
+#1 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Equipment->searchequipment()
+#2 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#3 C:\xampp\htdocs\ProjectCongNghePhanMem\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ProjectCongNghePhanMem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+INFO - 2022-05-21 17:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:40:09 --> CSRF cookie sent.
+INFO - 2022-05-21 17:40:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:40:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2022-05-21 17:40:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
