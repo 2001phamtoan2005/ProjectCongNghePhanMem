@@ -43,6 +43,17 @@ class EquipmentsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function __construct()
+    {
+        parent::__construct();
+        try{
+            $this->db = \Config\Database::connect();
+        }catch(\Exception $e){
+            log_message('error', '[ERROR] {exception}', ['exception' => $e]);
+        }
+    }
+
     public function gettypeequipment(){
         $data=$this->db->query('SELECT name FROM `equipments` group by name'  )->getResultArray();        
         return $data;
@@ -51,61 +62,40 @@ class EquipmentsModel extends Model
         $data=$this->db->table('manufacturer')->get()->getResult();
         return $data;
     }
-    public function searchequipment($equipment_id,$manufacture,$name,$note,$profile_id,$purchase_date,$series,$status,$warranty_period,$length,$start){
+    public function searchequipment($name,$Equipmenttype,$manufacture,$status,$start,$length)
+    {   
         $builder = $this->db->table($this->table);
-        $builder->select('id,equipment_id,manufacture, name, note, profile_id, purchase_date, series,status,warranty_period');
+        $builder->select('id, equipment_id, profile_id, name, manufacture_id, purchase_date, warranty_period,series,status,note');
         $builder->where('del_flag',0);
         $builder->orderBy('created_time','desc',);
         $recordsTotal = $builder->countAllResults(false);
-        
-        if (!empty($equipment_id)) {
-            $builder->like('equipment_id', $equipment_id);
-        }
-        if (!empty($type)) {            
-                $builder->like('manufacture', $manufacture);
-        }
         if (!empty($name))
         {
             $builder->like('name', $name);
         }
-        if (!empty($note))
-        {
-            $builder->like('note', $note);
+        if (!empty($Equipmenttype)) {
+            $builder->like('type_id', $Equipmenttype);
         }
-        if (!empty($profile_id))
-        {
-            $builder->like('profile_id', $profile_id);
+        if (!empty($manufacture)) {            
+                $builder->like('manufacture_id', $manufacture);
         }
-        if (!empty($purchase_date))
-        {
-            $builder->like('purchase_date', $purchase_date);
-        }
-        if (!empty($series))
-        {
-            $builder->like('series', $series);
-        }
-        if (!empty($status))
-        {
+        if (!empty($status)) {            
             $builder->like('status', $status);
-        }
-        if (!empty($warranty_period))
-        {
-            $builder->like('warranty_period', $warranty_period);
-        }
+    }
         $builder->limit($length, $start);
-        
+
         $result = $builder->get();
        
         $recordsFiltered = $builder->countAllResults(false);
         $data = $result->getResultArray();
 
+        
         return [
             'recordsTotal' => $recordsTotal,
             'recordsFiltered' => $recordsFiltered,
             'data' => $data,
         ];
     }
-
     public function addequipment($arraycourse){
         $this->db->transBegin();
         $this->db->table($this->table)->insert($arraycourse);

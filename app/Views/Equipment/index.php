@@ -60,9 +60,7 @@
 
 
                             </td>
-                            
-
-
+                        
                         </tr>
 
                         <tr>
@@ -214,18 +212,17 @@
             <thead class="table-dark text-white font-weight-bold">
                 <tr>
                     <th style="width:3%;"><?php echo lang('component.STT'); ?></th>
-                    <th><?php echo lang('component.Name'); ?></th>
-                    <th style="min-width:130px;"><?php echo lang('component.Equipmenttype'); ?></th>
-                    <th><?php echo lang('component.Image'); ?></th>
-                    <th style="min-width:130px;"><?php echo lang('component.manufacture'); ?></th>
+                    <th><?php echo lang('component.equipmentid'); ?></th>
                     <th style="min-width:130px;"><?php echo lang('component.profilename'); ?></th>
+                    <th style="min-width:130px;">Name</th>
+                    <th style="min-width:130px;"><?php echo lang('component.manufacture'); ?></th>
                     <th style="min-width:130px;"><?php echo lang('component.purchasedate'); ?></th>
                     <th style="min-width:130px;"><?php echo lang('component.warrantyperiod'); ?></th>
                     <th><?php echo lang('component.series'); ?></th>
-                    <th><?php echo lang('component.position'); ?></th>
+                    <th><?php echo lang('component.status'); ?></th>
                     <th><?php echo lang('component.Note'); ?></th>
                     <th style="width:10%;"><?php echo lang('component.Action'); ?></th>
-                    <th><?php echo lang('component.status'); ?></th>
+                    
                 </tr>
             </thead>
 
@@ -289,28 +286,28 @@
     }
 </style>
 <script type="text/javascript">
-    $(function() {
-        $('.datetimepicker1').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
-        $('.datetimepicker2').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
-        $('.datetimepicker3').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
-        $('.datetimepicker4').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
+    // $(function() {
+    //     $('.datetimepicker1').datepicker({
+    //         uiLibrary: 'bootstrap4',
+    //         format: 'yyyy-mm-dd'
+    //     });
+    //     $('.datetimepicker2').datepicker({
+    //         uiLibrary: 'bootstrap4',
+    //         format: 'yyyy-mm-dd'
+    //     });
+    //     $('.datetimepicker3').datepicker({
+    //         uiLibrary: 'bootstrap4',
+    //         format: 'yyyy-mm-dd'
+    //     });
+    //     $('.datetimepicker4').datepicker({
+    //         uiLibrary: 'bootstrap4',
+    //         format: 'yyyy-mm-dd'
+    //     });
 
 
-    });
+    // });
 
-    function searchequipment() {
+    $(document).ready(function() {
         console.log($('#name').val());
         console.log($('#purchasedatefrom').val());
         console.log($('#warrantyperiodfrom').val());
@@ -320,7 +317,7 @@
         console.log($('#warrantyperiodto').val())
         console.log($('#series').val())
         console.log($('#position').val())
-        $('#tablelist').DataTable({
+        var t=$('#tablelist').DataTable({
 
             lengthMenu: [
                 [10, 25, 50, 100],
@@ -329,24 +326,19 @@
             bProcessing: true,
             searching: false,
             processing: true,
-            serverSide: true,
+            //serverSide: true,
             "order": [
                 1, "asc"
             ],
             ajax: {
                 "url": "<?php echo base_url('searchequipment') ?>",
-                "type": "get",
+                "type": "GET",
+                "datatype": "json",
                 "data": {
-                    name: $('#name').val(),
-                    purchasedatefrom: $('#purchasedatefrom').val(),
-                    warrantyperiodfrom: $('#warrantyperiodfrom').val(),
-                    Equipmenttype: $('#Equipmenttype').val(),
-                    purchasedateto: $('#purchasedateto').val(),
-                    warrantyperiodto: $('#warrantyperiodto').val(),
-                    series: $('#series').val(),
-                    position: $('#position').val(),
-                    manufacture:$('#manufacture').val(),
-                    status:$('#status').val()
+                    name: "<?=(!empty($input["name"]))?$input["name"]:""?>",
+                    Equipmenttype: "<?=(!empty($input["Equipmenttype"]))?$input["Equipmenttype"]:""?>",
+                    manufacture:"<?=(!empty($input["manufacture"]))?$input["manufacture"]:""?>",
+                    status:"<?=(!empty($input["status"]))?$input["status"]:""?>"
                 }
 
 
@@ -355,40 +347,23 @@
             columnDefs: [{
                 "render": createManageBtn,
                 "data": null,
-                "targets": [11]
+                "targets": [10]
             }],
             columns: [{
-                    data: "row"
+                    data: null,
+                    orderable: false,
+                },
+                {
+                    data: "equipment_id"
+                },
+                {
+                    data: "profile_id"
                 },
                 {
                     data: "name"
                 },
                 {
-                    data: "Equipmenttype"
-                },
-                {
-
-                    data: "img",
-                    render: function(data) {
-                        console.log('====================================');
-                        console.log(data.length);
-                        console.log('====================================');
-
-                        if (data.length > 0) {
-                            return `<img class="rounded-circle" style="width:60px; height:60px;" src="data:image/jpeg;base64,${data}"/>`;
-
-
-                        } else {
-                            return '';
-                        }
-
-                    }
-                },
-                {
-                    data: "manufacturer"
-                },
-                {
-                    data: "profilename"
+                    data: "manufacture_id"
                 },
                 {
                     data: "purchase_date"
@@ -400,8 +375,7 @@
                     data: "series"
                 },
                 {
-                    data: "position"
-
+                    data: "status"
                 },
                 {
                     data: "note"
@@ -409,10 +383,8 @@
                 },
                 {
                     data: "id"
-
                 },
             ],
-
 
             dom: '<"row"<"col-6"l><"col-6 d-flex justify-content-end"B>><tr><"row"<"col-6"i><"col-6 d-flex justify-content-end"p>>',
             "bFilter": false,
@@ -432,7 +404,13 @@
 
 
         });
-    }
+        t.on( 'draw.dt', function () {
+    var PageInfo = $('#tablelist').DataTable().page.info();
+         t.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+            cell.innerHTML = i + 1 + PageInfo.start;
+        } );
+    } );
+    })
 
     function createManageBtn(id) {
         return '<div class="d-flex justify-content-center"><a href="<?= base_url('Equipment/editEquipment/') ?>/id=' + id + '"><button id="manageBtn" type="button"  class="btn btn-success"><i class="fa fa-edit"></i></button></a>' +

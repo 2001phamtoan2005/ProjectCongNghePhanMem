@@ -57,8 +57,8 @@ class Equipment extends BaseController
         $status=$this->request->getVar('status');
         $start = $this->request->getVar('start');
         $length = $this->request->getVar('length');
-        $json_data = $this->EquipmentsModel->searchequipment($name, $purchasedatefrom, $warrantyperiodfrom, $Equipmenttype, $purchasedateto, $warrantyperiodto, $series, $position,$manufacture,$status);
-    
+        //$json_data = $this->EquipmentsModel->searchequipment($name, $purchasedatefrom, $warrantyperiodfrom, $Equipmenttype, $purchasedateto, $warrantyperiodto, $series, $position,$manufacture,$status,$start,$length);
+        $json_data = $this->EquipmentsModel->searchequipment(null, null, null, null, null, null); 
         //$json_data=$model->searchequipment($name);
         
         echo json_encode($json_data);        
