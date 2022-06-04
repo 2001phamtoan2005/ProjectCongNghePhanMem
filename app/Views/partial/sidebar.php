@@ -40,18 +40,8 @@
                 </a>
             </li>
             <li class="sidebarItem">
-                <a href="<?=base_url('userlist')?>" class="sidebarItem__link" id="userlist"> <i class='sidebarIcon fas fa-users'></i> <span
-                        ><?php echo lang('component.UserList'); ?> </span>
-                </a>
-            </li>
-            <li class="sidebarItem">
-            <a href="<?=base_url('course')?>" class="sidebarItem__link" id="course"> <i class="sidebarIcon fas fa-book"></i> <span
-                        ><?php echo lang('component.Courses'); ?> </span>
-                </a>
-            </li>
-            <li class="sidebarItem">
-                <a href="<?=base_url('position')?>" class="sidebarItem__link" id="position"> <i class='sidebarIcon fas fa-briefcase nav_icon'></i> <span
-                    ><?php echo lang('component.Position'); ?> </span>
+                <a href="<?=base_url('manager')?>" class="sidebarItem__link" id="managerequipment"> <i class="sidebarIcon fas fa-cogs"></i> <span
+                        ><?php echo lang('component.managerequipment'); ?> </span>
                 </a>
             </li>
             <li class="sidebarItem">
@@ -60,20 +50,32 @@
                 </a>
             </li>
             <li class="sidebarItem">
+                <a href="<?=base_url('userlist')?>" class="sidebarItem__link" id="userlist"> <i class='sidebarIcon fas fa-users'></i> <span
+                        ><?php echo lang('component.UserList'); ?> </span>
+                </a>
+            </li>
+            <!-- <li class="sidebarItem">
+            <a href="<?=base_url('course')?>" class="sidebarItem__link" id="course"> <i class="sidebarIcon fas fa-book"></i> <span
+                        ><?php echo lang('component.Courses'); ?> </span>
+                </a>
+            </li> -->
+            <li class="sidebarItem">
+                <a href="<?=base_url('position')?>" class="sidebarItem__link" id="position"> <i class='sidebarIcon fas fa-briefcase nav_icon'></i> <span
+                    ><?php echo lang('component.Position'); ?> </span>
+                </a>
+            </li>
+            
+            <li class="sidebarItem">
                 <a href="<?=base_url('department')?>" class="sidebarItem__link" id="department"> <i class='sidebarIcon fas fa-building nav_icon'></i> <span
                         ><?php echo lang('component.Department'); ?> </span>
                 </a>
             </li>
-            <li class="sidebarItem">
+            <!-- <li class="sidebarItem">
                 <a href="<?=base_url('config')?>" class="sidebarItem__link" id="config"> <i class="sidebarIcon fas fa-cogs"></i> <span
                         ><?php echo lang('component.Config'); ?> </span>
                 </a>
-            </li>
-            <li class="sidebarItem">
-                <a href="<?=base_url('manager')?>" class="sidebarItem__link" id="managerequipment"> <i class="sidebarIcon fas fa-cogs"></i> <span
-                        ><?php echo lang('component.managerequipment'); ?> </span>
-                </a>
-            </li>
+            </li> -->
+            
 
         </ul>
         <div class="sidebarBot">
