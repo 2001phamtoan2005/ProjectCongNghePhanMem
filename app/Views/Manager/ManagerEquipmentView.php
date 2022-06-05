@@ -85,15 +85,15 @@
 
 
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%">
-    <h3 class="text-center text-light">Quản lí Thiết bị</h3>
+    <h3 class="text-center text-light"><?php echo lang('component.managerequipment'); ?></h3>
 
     <div class="row" style="width: 100%; height: 100%; color: #333">
         <div class="col col-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title text-center">Cap Phat Thiet Bi NV</h3>
+                    <h3 class="card-title text-center"><?php echo lang('component.allocationDevices'); ?></h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="display:flex;flex-direction:column;height:500px">
                     <div class="d-flex">
                         <!-- form here -->
                         <form class="w-100" action="<?=base_url('manager/getuser') ?>" method="post">
@@ -158,14 +158,14 @@
                         </form>
                     </div>
                     <!-- table cap phat thiet bi -->
-                    <div class="" style="overflow-y: scroll; height: 360px">
-                        <table class="table" id="tableuser">
-                            <thead>
+                    <div class="" style="overflow-y: scroll; flex:1">
+                        <table class="table w-100" id="tableuser">
+                            <thead class="table-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col"><?php echo lang('component.equipmentid'); ?></th>
+                                    <th scope="col"><?php echo lang('component.Name'); ?></th>
+                                    <th scope="col"><?php echo lang('component.NotePosition'); ?></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -177,22 +177,22 @@
         <div class="col col-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title text-center">Loai Thiet Bi</h3>
+                    <h3 class="card-title text-center"><?php echo lang('component.typeDevices'); ?></h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow-y:scroll;height: 500px">
                     <div class="d-flex">
                         <!-- form  -->
                         
                     </div>
                     <!-- table cap phat thiet bi -->
-                    <div style="overflow-y: scroll; height: 360px">
-                    <table class="table" id="table_equip">
-                            <thead>
+                    <div >
+                    <table class="table w-100" id="table_equip">
+                            <thead class="table-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                <th scope="col"><?php echo lang('component.equipmentid'); ?></th>
+                                    <th scope="col"><?php echo lang('component.Name'); ?></th>
+                                    <th scope="col"><?php echo lang('component.NotePosition'); ?></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -256,7 +256,7 @@
                             {
                                 orderable: false,
                                 "defaultContent": '<center>'                   
-                                +'<button id="delBtn" class="btn btn-danger"><i class="fa fa-edit mr-1"><?php echo lang('component.Delete'); ?></i></button>'
+                                +'<button id="delBtn" class="btn btn-danger"><i class="fa-solid fa-trash-can mr-1"></i><?php echo lang('component.Delete'); ?></button>'
                                 +'</center>'
                             },
                         ],
@@ -289,7 +289,7 @@
                             {
                                 orderable: false,
                                 "defaultContent": '<center>'
-                    +'<button id="editBtn" class="btn btn-success"><i class="fa fa-edit mr-1"><?php echo lang('component.Edit'); ?></i></button>'
+                    +'<button id="editBtn" class="btn btn-success"><i class="fa fa-edit mr-1"></i><?php echo lang('component.Edit'); ?></button>'
                     +'</center>'
                             },
                         ],

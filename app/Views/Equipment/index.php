@@ -204,20 +204,16 @@
 
     <!-- list -->
     <div class="list" style="overflow-x:auto;">
-
-
-
-
         <table id="tablelist" class="table table-striped table-bordered" style="width:100%">
             <thead class="table-dark text-white font-weight-bold">
                 <tr>
                     <th style="width:3%;"><?php echo lang('component.STT'); ?></th>
                     <th><?php echo lang('component.equipmentid'); ?></th>
-                    <th style="min-width:130px;"><?php echo lang('component.profilename'); ?></th>
-                    <th style="min-width:130px;">Name</th>
-                    <th style="min-width:130px;"><?php echo lang('component.manufacture'); ?></th>
-                    <th style="min-width:130px;"><?php echo lang('component.purchasedate'); ?></th>
-                    <th style="min-width:130px;"><?php echo lang('component.warrantyperiod'); ?></th>
+                    <th><?php echo lang('component.profilename'); ?></th>
+                    <th>Name</th>
+                    <th><?php echo lang('component.manufacture'); ?></th>
+                    <th><?php echo lang('component.purchasedate'); ?></th>
+                    <th><?php echo lang('component.warrantyperiod'); ?></th>
                     <th><?php echo lang('component.series'); ?></th>
                     <th><?php echo lang('component.status'); ?></th>
                     <th><?php echo lang('component.Note'); ?></th>
@@ -345,7 +341,7 @@
             },
 
             columnDefs: [{
-                "render": createManageBtn,
+                //"render": createManageBtn,
                 "data": null,
                 "targets": [10]
             }],
@@ -382,22 +378,23 @@
 
                 },
                 {
-                    data: "id"
+                    data: "id",
+                    visible: false
                 },
             ],
 
-            dom: '<"row"<"col-6"l><"col-6 d-flex justify-content-end"B>><tr><"row"<"col-6"i><"col-6 d-flex justify-content-end"p>>',
-            "bFilter": false,
-            buttons: [{
-                text: '<i class="fas fa-user-plus"></i> <?php echo lang('component.Register'); ?>',
-                attr: {
-                    class: "btn btn-success"
-                },
-                action: function(e, dt, node, config) {
-                    location.replace('<?= base_url('registerEquipment') ?>');
-                }
+            // dom: '<"row"<"col-6"l><"col-6 d-flex justify-content-end"B>><tr><"row"<"col-6"i><"col-6 d-flex justify-content-end"p>>',
+            // "bFilter": false,
+            // buttons: [{
+            //     text: '<i class="fas fa-user-plus"></i> <?php echo lang('component.Register'); ?>',
+            //     attr: {
+            //         class: "btn btn-success"
+            //     },
+            //     action: function(e, dt, node, config) {
+            //         location.replace('<?= base_url('registerEquipment') ?>');
+            //     }
 
-            }],
+            // }],
             "language": {
                 "url": " <?php echo lang('component.languagedatatable'); ?>"
             }

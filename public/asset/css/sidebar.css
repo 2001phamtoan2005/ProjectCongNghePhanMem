@@ -7,7 +7,7 @@
     --bg-mainNotActive:rgba(23, 32, 34,0.6);
     --size-Icon:24px;
     /* --bgHome-main:#1d2335; */
-    --bgHome-main:#1d2335;
+    --bgHome-main:#fff;
 
     --bgHome-second:#1d2335;
     --bg-mainLinear:linear-gradient(to bottom right ,var(--bgHome-main),var(--bgHome-main));
@@ -17,8 +17,12 @@
 html{
     overflow:hidden;
     user-select:none;
-  }
+    font-family: 'IBM Plex Sans', sans-serif;
+}
 
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
 .bg__home{
     background-image: var(--bg-mainLinear);
     background-repeat: no-repeat;

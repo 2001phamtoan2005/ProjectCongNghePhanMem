@@ -218,8 +218,8 @@
 <?= $this->section('style') ?>
 
 <!-- <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css" rel="stylesheet"> -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap.min.css"> -->
 <?= $this->endSection() ?>
 
 <?= $this->section('script') ?>
@@ -335,8 +335,8 @@ $(document).ready(function() {
     
         function createManageBtn(id) {
         return '<center>'
-        +'<button id="editbtn" type="button" class="btn btn-success "  ><i class="fa fa-edit mr-1"><?php echo lang('component.Edit'); ?></i>'
-        +'</button> <button id="manageBtn" type="button"  class="btn btn-danger "><i class="fas fa-backspace mr-1"> <?php echo lang('component.Delete'); ?></i></button>'
+        +'<button id="editbtn" class="btn btn-success"><i class="fa fa-edit mr-1"></i><?php echo lang('component.Edit');?>'+'</button>'+
+        '<button id="manageBtn" class="btn btn-danger"><i class="fas fa-backspace mr-1"></i><?php echo lang('component.Delete');?></button>'
         +'</center>';
     }
 

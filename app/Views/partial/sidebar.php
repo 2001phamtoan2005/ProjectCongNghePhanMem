@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="<?=base_url("public/asset/css/sidebar.css")?>">
+
 <header class="headerHomePage">
     <div class="headerHomePage__logo">
         <img src="<?=base_url("/public/asset/image_login/logo-cube-green1.png")?>" alt="" width="140">

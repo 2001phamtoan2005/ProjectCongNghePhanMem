@@ -67,16 +67,17 @@
                     <div class="wrapper__button">
                         <input type="submit" id="btnSubmit" class="btn__login" value="Enter">
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <footer class="response">
-        <span><i class="response__icon fa-solid fa-circle-exclamation"></i>
+                    <footer class="response" >
+        <span id="message_span"><i class="response__icon fa-solid fa-circle-exclamation"></i>
             Minh Tònn Administrator said: 
             <span class="message"></span>
         </span>
     </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+    
     
     <script src="<?=base_url("/public/asset/js/login.js")?>"></script>
 </body>

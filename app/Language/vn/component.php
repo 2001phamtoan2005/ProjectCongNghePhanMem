@@ -88,4 +88,8 @@ return [
     'Year'=>'Năm',
     'status'=>'Trạng thái',
     'managerequipment'=>'Quản lí thiết bị',
+    'allocationDevices'=>'Cấp Phát Thiết Bị',
+
+    'typeDevices'=>'Loại Thiết Bị',
+
 ];

@@ -57,6 +57,72 @@ CREATE TABLE `supplier_company` (
   `created_user` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+CREATE TABLE `liquidation_company` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `short_name` varchar(255) DEFAULT NULL,
+  `note` text DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `del_flag` tinyint(1) NOT NULL DEFAULT 0,
+  `updated_time` datetime DEFAULT NULL,
+  `updated_user` varchar(255) DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `created_user` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `purcahse_invoice` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `supplier_company` int(11) DEFAULT NULL,
+  `total` float DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `created_user` varchar(255) DEFAULT NULL,
+  `del_flag` tinyint(1) NOT NULL DEFAULT 0,
+  `updated_time` datetime DEFAULT NULL,
+  `updated_user` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE `liquidation_invoice` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `liquidation_company` int(11) DEFAULT NULL,
+  `total` float DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `created_user` varchar(255) DEFAULT NULL,
+  `del_flag` tinyint(1) NOT NULL DEFAULT 0,
+  `updated_time` datetime DEFAULT NULL,
+  `updated_user` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE `purcahse_detail` (
+  `id` int(11) NOT NULL,
+  `purchase_invoice` int(11) NOT NULL,
+  `equipment` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `created_user` varchar(255) DEFAULT NULL,
+  `del_flag` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `liquidation_detail` (
+  `id` int(11) NOT NULL,
+  `liquidation_invoice` int(11) NOT NULL,
+  `equipment` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `created_user` varchar(255) DEFAULT NULL,
+  `del_flag` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 --
 -- Dumping data for table `config`
 --

@@ -89,6 +89,9 @@ return [
     'Year'=>'Year',
     'status'=>'Status',
     'managerequipment'=>'Manager Equipment',
+    'allocationDevices'=>'Allocation Devices',
+
+    'typeDevices'=>'Type Devices',
 
     
 
