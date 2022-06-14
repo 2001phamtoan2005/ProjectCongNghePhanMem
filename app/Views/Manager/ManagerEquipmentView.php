@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <!-- The Delete Modal -->
-<form action="<?= base_url('manager/reomveEquip')?>" method="post">
+<form action="<?= base_url('manager/reomveEquip')?>" method="post" id="deleteModal">
 <div class="modal" id="DelModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -18,18 +18,20 @@
       <div class="modal-body">
       <div class="card-body">
         <p style="color:black">
-            <span>You are going to delete </span>
-            <span id="nameps" style="font-weight: bold;"></span>           
+            <span>You are going to delete  equipment</span>
+            <span id="nameps" style="font-weight: bold;"></span>   
+            <span> from this user.</span>        
             <span><br>Are you sure?</span>
         </p>
+        <span id="error" class="text-danger"></span>
                    
     </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <input  name="id" id="id" class="id" style="color:black">
-      <input  name="iduser" id="iduser" class="id" style="color:black">
+      <input type="hidden"  name="id" id="id" class="id" style="color:black">
+      <input type="hidden"  name="iduser" id="iduser" class="id" style="color:black">
         <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
         <button type="submit" class="btn btn-primary" >  Yes  </button>
         &nbsp;
@@ -43,7 +45,7 @@
 </form>
 
 <!-- The Add Modal -->
-<form action="<?= base_url('manager/addEquip')?>" method="post">
+<form action="<?= base_url('manager/addEquip')?>" method="post" id="addModel">
 <div class="modal" id="AddModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -58,11 +60,12 @@
       <div class="modal-body">
       <div class="card-body">
         <p style="color:black">
-            <span>You are going to delete </span>
-            <span id="nameps" style="font-weight: bold;"></span>           
+            <span>You are going to add equipment</span>
+            <span id="nameps" style="font-weight: bold;"></span>      
+            <span> to this user.</span>
             <span><br>Are you sure?</span>
         </p>
-                   
+        <span id="error" class="text-danger"></span>
     </div>
       </div>
 
@@ -85,7 +88,7 @@
 
 
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%">
-    <h3 class="text-center text-light"><?php echo lang('component.managerequipment'); ?></h3>
+    <h3 class="text-center " style="color:black"><?php echo lang('component.managerequipment'); ?></h3>
 
     <div class="row" style="width: 100%; height: 100%; color: #333">
         <div class="col col-6">
@@ -120,7 +123,7 @@
                                         <span class="input-group-text" id="basic-addon1">Name</span>
                                         <input
                                             id="name"
-                                            value="<?= $name?>"
+                                            value="<?= $name ?>"
                                             type="text"
                                             class="form-control"
                                             placeholder=""
@@ -135,6 +138,7 @@
                                         <span class="input-group-text" id="basic-addon1">Position</span>
                                         <input
                                             id="position"
+                                            value="<?= $position ?>"
                                             type="text"
                                             class="form-control"
                                             placeholder=""
@@ -146,6 +150,7 @@
                                         <span class="input-group-text" id="basic-addon1">Departments</span>
                                         <input
                                             id="department"
+                                            value="<?= $department ?>"
                                             type="text"
                                             class="form-control"
                                             placeholder=""
@@ -157,6 +162,11 @@
                             </div>
                         </form>
                     </div>
+                    <?php if(session()->getFlashdata('msgNull')):?>
+                    <div id="alertStateUser" class="alert alert-warning" style="color:red; padding-left:15px">
+                        <?= session()->getFlashdata('msgNull') ?>
+                    </div>
+                    <?php endif;?>
                     <!-- table cap phat thiet bi -->
                     <div class="" style="overflow-y: scroll; flex:1">
                         <table class="table w-100" id="tableuser">
@@ -289,7 +299,7 @@
                             {
                                 orderable: false,
                                 "defaultContent": '<center>'
-                    +'<button id="editBtn" class="btn btn-success"><i class="fa fa-edit mr-1"></i><?php echo lang('component.Edit'); ?></button>'
+                    +'<button id="editBtn" class="btn btn-success"><i class="fa fa-edit mr-1"></i><?php echo lang('component.Register'); ?></button>'
                     +'</center>'
                             },
                         ],
@@ -301,8 +311,8 @@
                 console.log(user);
                 $('#DelModal #id').val(data.equipment_id); 
                 $('#DelModal #iduser').val(user); 
-                $('#DelModal #nameps').text(data.name);  
-
+                $('#DelModal #nameps').text(data.equipment_id);  
+                $('#DelModal #error').text("");  
                 $('#DelModal').modal('show');
                 } );
                 //load modal add
@@ -312,12 +322,56 @@
                 console.log(user);
                 $('#AddModal #id').val(data.equipment_id); 
                 $('#AddModal #iduser').val(user);
-                $('#AddModal #nameps').text(data.name);      
+                $('#AddModal #nameps').text(data.equipment_id);      
+                $('#AddModal #error').text("");  
                 $('#AddModal').modal('show');
                 } );
+                $('#deleteModal').submit(function(e){       
+                    $.ajax({
+                    url: "<?=base_url('manager/reomveEquip') ?>",
+                    type: "POST",
+                    data: $(this).serializeArray(),
+                    beforeSend: function( xhr ) {
+                        xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                        
+                    }
+                    })
+                    .done(function( data ) {
+                        if ( data!='Please enter user!' ) {
+                            location.reload();
+                        }
+                        else
+                        {
+                            $('#error').html(data);
+                        }
+                    });
+                    e.preventDefault();
+                });
+                $('#addModel').submit(function(e){       
+                    $.ajax({
+                    url: "<?=base_url('manager/addEquip') ?>",
+                    type: "POST",
+                    data: $(this).serializeArray(),
+                    beforeSend: function( xhr ) {
+                        xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                        
+                    }
+                    })
+                    .done(function( data ) {
+                        if ( data!='Please enter user!' ) {
+                            location.reload();
+                        }
+                        else
+                        {
+                            $('#error').html(data);
+                        }
+                    });
+                    e.preventDefault();
+                })
             
             } );
         </script>
+
 
 <?= $this->endSection() ?>
 

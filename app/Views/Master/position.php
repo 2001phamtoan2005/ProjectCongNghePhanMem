@@ -6,7 +6,7 @@
 
 
 <!-- The Modal -->
-<form id="createForm" action="<?=base_url('position/addposition') ?>" method="post">
+<form style="color:black" id="createForm" action="<?=base_url('position/addposition') ?>" method="post">
 <div class="modal" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -57,7 +57,7 @@
 </form>
 
 <!-- The Edit Modal -->
-<form action="<?= base_url('position/editposition')?>" method="post">
+<form style="color:black" action="<?= base_url('position/editposition')?>" method="post">
 <div class="modal" id="EditModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -108,7 +108,7 @@
 </form>
 
 <!-- The Delete Modal -->
-<form action="<?= base_url('position/deleteposition')?>" method="post">
+<form style="color:black" action="<?= base_url('position/deleteposition')?>" method="post">
 <div class="modal" id="DelModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -147,7 +147,7 @@
 </form>
 
 
-    <div class="card">
+    <div style="color:black" class="card">
     <div class="card-header">
         <h3 class="card-title">Position List</h3>
     </div>

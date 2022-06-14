@@ -6,7 +6,7 @@
 
 
 <!-- The Modal -->
-<form id="createForm" action="<?=base_url('Department/addDepartment') ?>" method="post">
+<form id="createForm" action="<?=base_url('Department/addDepartment') ?>" method="post" style="color:black">
 <div class="modal" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -57,8 +57,8 @@
 </form>
 
 <!-- The Edit Modal -->
-<form action="<?= base_url('Department/editDepartment')?>" method="post">
-<div class="modal" id="EditModal">
+<form style="color:black" action="<?= base_url('Department/editDepartment')?>" method="post">
+<div  class="modal" id="EditModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -108,7 +108,7 @@
 </form>
 
 <!-- The Delete Modal -->
-<form action="<?= base_url('Department/deleteDepartment')?>" method="post">
+<form style="color:black" action="<?= base_url('Department/deleteDepartment')?>" method="post">
 <div class="modal" id="DelModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -147,11 +147,11 @@
 </form>
 
 
-    <div class="card">
+    <div class="card" style="color:black">
     <div class="card-header">
         <h3 class="card-title">Department List</h3>
     </div>
-    <div class="card-body">
+    <div style="color:black" class="card-body">
     <?php $validation = \Config\Services::validation();
     ?>
     <form class="" action="<?=base_url('Department') ?>" method="get">

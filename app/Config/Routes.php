@@ -103,7 +103,8 @@ $routes->get('homepage/updatechart/(:alphanum)','Home::updatechart/$1');
 
 $routes->get('manager',"Manager::index");
 $routes->post('manager/getuser','Manager::searchUser');
-$routes->get('manager/(:alphanum)',"Manager::getUser/$1");
+$routes->post('manager/getuser/(:alphanum)','Manager::searchUser');
+$routes->get('manager/(:alphanum)',"Manager::getUser2/$1");
 $routes->post('manager/addEquip','Manager::addEquip');
 $routes->post('manager/reomveEquip','Manager::reomveEquip');
 

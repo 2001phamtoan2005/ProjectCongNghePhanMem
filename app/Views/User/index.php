@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="card">
+<div style="color:black" class="card">
     <div class="card-header">
         <h3 class="card-title">User List</h3>
     </div>

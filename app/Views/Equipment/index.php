@@ -35,37 +35,7 @@
 
                             </td>
                             <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.purchasedatefrom'); ?></span>
-                                    <div id="input">
-                                        <div class='input-group date'>
-                                            <input id="purchasedatefrom" type="text" name="purchasedatefrom" value="<?php echo set_value('purchasedatefrom'); ?>" class="form-control datetimepicker1" />
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.purchasedateto'); ?></span>
-                                    <div id="input">
-                                        <div class='input-group date'>
-                                            <input id="purchasedateto" type="text" name="purchasedateto" value="<?php echo set_value('purchasedateto'); ?>" class="form-control datetimepicker3" />
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </td>
-                        
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="form-group row mb-4">
+                            <div class="form-group row mb-4">
                                     <span style="width:150px;"><?php echo lang('component.Equipmenttype'); ?> </span>
                                     <!-- <input id="coursetype" type="text" name="Coursetype"  value="<?php echo set_value('Coursetype'); ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
                             -->
@@ -89,33 +59,8 @@
 
 
                             </td>
-                            
                             <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.warrantyperiodfrom'); ?></span>
-                                    <div id="input">
-                                        <div class='input-group date'>
-                                            <input id="warrantyperiodfrom" type="text" name="warrantyperiodfrom" value="<?php echo set_value('warrantyperiodfrom'); ?>" class="form-control datetimepicker2" />
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </td>
-                            <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.warrantyperiodto'); ?></span>
-                                    <div id="input">
-                                        <div class='input-group date'>
-                                            <input id="warrantyperiodto" type="text" name="warrantyperiodto" value="<?php echo set_value('warrantyperiodto'); ?>" class="form-control datetimepicker4" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-group row mb-4">
+                            <div class="form-group row mb-4">
                                     <span style="width:150px;"><?php echo lang('component.manufacture'); ?></span>
                                     <div id="input">
                                         <select class="form-control" id="manufacture" name="manufacture" value="<?php echo set_value('manufacture'); ?>">
@@ -135,35 +80,13 @@
 
 
                             </td>
+                        
+                        </tr>
+
+                        <tr>
                             <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.series'); ?></span>
-                                    <div id="input">
-                                        <input id="series" type="text" name="series" value="<?php echo set_value('series'); ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
-                                    </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <div class="form-group row mb-4">
-                                    <span style="width:150px;"><?php echo lang('component.position'); ?></span>
-                                    <div id="input">
-
-                                        <input id="position" type="text" name="position" value="<?php echo set_value('position'); ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
-
-                                    </div>
-                                </div>
-            </div>
-
-
-            </td>
-           
-            </tr>
-                                    
-            <tr>
-            <td>
-            <div class="form-group row mb-4">
+                                
+                            <div class="form-group row mb-4">
                                     <span style="width:150px;"><?php echo lang('component.status'); ?> </span>                       
                                     <div id="input">
                                         <select class="form-control" id="status" name="status" value="<?php echo set_value('status'); ?>">
@@ -177,7 +100,40 @@
                                     </div>
 
 
-                                </div>              
+                                </div>      
+
+                            </td>
+                            
+                            <td>
+                                
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+
+
+                            </td>
+                            <td>
+                                
+
+
+                            </td>
+                            <td>
+                                
+            </div>
+
+
+            </td>
+           
+            </tr>
+                                    
+            <tr>
+            <td>
+                                        
                                         
                                     
             </td>

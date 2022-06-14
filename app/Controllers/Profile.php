@@ -413,4 +413,5 @@ class Profile extends BaseController
         session()->setFlashdata('success', 'xóa thành công');;
         return view('User/index');
     }
+    
 }
