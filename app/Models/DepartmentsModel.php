@@ -120,7 +120,7 @@ class DepartmentsModel extends Model
     }
     public function getName($id)
     {
-        $data=$data=$this->db->query('SELECT name FROM `positions` WHERE id='.$id  )->getResultArray();        
+        $data=$data=$this->db->query('SELECT name FROM `departments` WHERE id='.$id  )->getResultArray();        
         return $data;
     }
 }

@@ -65,7 +65,7 @@
             <span> to this user.</span>
             <span><br>Are you sure?</span>
         </p>
-        <span id="error" class="text-danger"></span>
+        <span id="error2" class="text-danger"></span>
     </div>
       </div>
 
@@ -129,6 +129,7 @@
                                             placeholder=""
                                             aria-label="Username"
                                             aria-describedby="basic-addon1"
+                                            readonly
                                         />
                                     </div>
                                 </div>
@@ -144,6 +145,7 @@
                                             placeholder=""
                                             aria-label="Username"
                                             aria-describedby="basic-addon1"
+                                            readonly
                                         />
                                     </div>
                                     <div class="input-group mb-3">
@@ -156,6 +158,7 @@
                                             placeholder=""
                                             aria-label="Username"
                                             aria-describedby="basic-addon1"
+                                            readonly
                                         />
                                     </div>
                                 </div>
@@ -347,6 +350,7 @@
                     });
                     e.preventDefault();
                 });
+                
                 $('#addModel').submit(function(e){       
                     $.ajax({
                     url: "<?=base_url('manager/addEquip') ?>",
@@ -363,11 +367,11 @@
                         }
                         else
                         {
-                            $('#error').html(data);
+                            $('#error2').html(data);
                         }
                     });
                     e.preventDefault();
-                })
+                });
             
             } );
         </script>

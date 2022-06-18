@@ -24,7 +24,7 @@
         </div>
         <div class="headerHomePage__profile">
             <i class="headerHomePage__profile-icon fa-solid fa-circle-user"></i>
-            <span> Administrator <?= session()->get('users') ? session()->get('users')['login_id'] : " "?></span>
+            <span> Administrator: <?= session()->get('users') ? session()->get('users')['name'] : " "?></span>
         </div>
 
     </div>

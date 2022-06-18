@@ -106,21 +106,7 @@
             <tbody>
             </tbody>
             <tfoot>
-                <tr>
-                    <th><?php echo lang('component.Login_iD'); ?> </th>
-                    <th><?php echo lang('component.Name'); ?> </th>
-                    <th><?php echo lang('component.Gender'); ?> </th>
-                    <th><?php echo lang('component.Birthday'); ?> </th>
-                    <th><?php echo lang('component.Position'); ?> </th>
-                    <th><?php echo lang('component.Department'); ?> </th>
-                    <th><?php echo lang('component.official_date'); ?> </th>
-                    <th><?php echo lang('component.probation_date'); ?> </th>
-                    <th><?php echo lang('component.Mail'); ?> </th>
-                    <th><?php echo lang('component.Employee_ID'); ?> </th>
-                    <th><?php echo lang('component.Image'); ?> </th>
-                    <th><?php echo lang('component.Status'); ?> </th>
-                    <th><?php echo lang('component.Action'); ?> </th>
-                </tr>
+                
             </tfoot>
         </table>
     </div>
@@ -242,15 +228,15 @@ $(document).ready(function() {
         ],
         dom: '<"row"<"col-6"l><"col-6 d-flex justify-content-end"B>><tr><"row"<"col-6"i><"col-6 d-flex justify-content-end"p>>',
         "bFilter": false,
-        buttons: [{
-            text: '<i class="fas fa-user-plus"></i> <?php echo lang('component.Register'); ?>',
-            attr: {
-                class: "btn btn-primary"
-            },
-            action: function(e, dt, node, config) {
-                alert('Button activated');
-            }
-        }],
+        // buttons: [{
+        //     text: '<i class="fas fa-user-plus"></i> <?php echo lang('component.Register'); ?>',
+        //     attr: {
+        //         class: "btn btn-primary"
+        //     },
+        //     action: function(e, dt, node, config) {
+        //         alert('Button activated');
+        //     }
+        // }],
         //  "language": {
         //     "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/vi.json"
         // }

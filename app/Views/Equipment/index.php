@@ -139,7 +139,7 @@
             </td>
             <td></td>
             <td>
-                <button class="btn btn-primary" type="submit" style="margin-left:110px;"><i class="fa fa-search"></i> <?php echo lang('component.SearchCourse'); ?></button>
+                <!-- <button class="btn btn-primary" type="submit" style="margin-left:110px;"><i class="fa fa-search"></i> <?php echo lang('component.SearchCourse'); ?></button> -->
             </td>
             </tr>
 

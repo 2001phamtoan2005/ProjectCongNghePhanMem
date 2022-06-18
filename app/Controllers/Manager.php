@@ -41,38 +41,24 @@ class Manager extends BaseController
         $id = $this->request->getPost('userID');
         // echo json_encode($id);
         // exit;
+        $session = session();
         $type=$this->EquipmentsModel->getName();
         $data_equip=$this->EquipmentsModel->getEquipNoUser();
         if($id==null)
         {
-            $session = session();
-            $dataNull=[
-                'id'=>'',
-                'name'=>'',
-                'position'=>null,
-                'department'=>null,
-                'data'=>null,
-                "type"=>$type,
-                "data_equip"=>$data_equip,
-            ];
             $session->setFlashdata('msgNull', 'Please enter ID User!');
             //return view('Manager/ManagerEquipmentView',$dataNull);
             return redirect()->to('/manager');
         }
-           
+        if(!is_numeric($id))
+        {
+            $session->setFlashdata('msgNull', 'Value must be a number!');
+            //return view('Manager/ManagerEquipmentView',$dataNull);
+            return redirect()->to('/manager');
+        }
         $user=$this->ProfilesModel->getUser($id);
         if($user==null)
         {
-            $session = session();
-            $dataNull=[
-                'id'=>'',
-                'name'=>'',
-                'position'=>null,
-                'department'=>null,
-                'data'=>null,
-                "type"=>$type,
-                "data_equip"=>$data_equip,
-            ];
             $session->setFlashdata('msgNull', 'User ID is incorrect!');
             //return view('Manager/ManagerEquipmentView',$dataNull);
             return redirect()->to('/manager');

@@ -257,7 +257,7 @@ class ProfilesModel extends Model
 
     public function getUser($id)
     {
-        $data=$data=$this->db->query('SELECT name, position_id, department_id FROM `profiles` WHERE employee_id='.$id  )->getResultArray();        
+        $data=$this->db->query('SELECT name, position_id, department_id FROM `profiles` WHERE employee_id='.$id  )->getResultArray();        
         return $data;
     }
 }

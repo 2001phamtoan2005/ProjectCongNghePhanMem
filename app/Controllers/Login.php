@@ -46,9 +46,13 @@ class Login extends BaseController
                         'id' => $data['id'],
                         'login_id' => $data['login_id'],
                         'profile_id' => $data['profile_id'],
-                        'isLoggedIn' => TRUE
+                        'isLoggedIn' => TRUE,
+                        'name'=>$this->ProfilesModel->getUser($data['profile_id'])[0]['name'],
                     ];
-
+                    
+                    $user=$this->ProfilesModel->getUser($data['profile_id']);
+                    // echo json_encode($user[0]);
+                    // exit;
                     $session->set('users',$user_data);    
                     return redirect()->to('home');               
                     //return view('Homes/home');
